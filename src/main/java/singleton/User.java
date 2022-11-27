@@ -11,6 +11,8 @@ public class User {
     private String email;
     private int age;
 
+    private db.DataBase db;
+
     public void save() {
         DBConnection dbConnection = DBConnection.getInstance();
         String query = String.format("insert into user (email, name, age) values ('%s', '%s', %d);",
