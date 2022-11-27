@@ -1,6 +1,8 @@
 package adapter.task2;
 
+import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class TwitterClient implements Client {
     private final TwitterUser user;
@@ -21,6 +23,8 @@ public class TwitterClient implements Client {
 
     @Override
     public LocalDate getLastActiveTime() {
-        return user.getLastActiveTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(user.getLastActiveTime(), formatter);
+        return localDate;
     }
 }
